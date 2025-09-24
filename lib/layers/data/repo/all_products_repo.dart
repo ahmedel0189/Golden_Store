@@ -8,13 +8,14 @@ class AllProductsRepositories {
     required this.allProductsApi,
   });
 
-  Future<List<ProductModel>> getallProducts() async {
-    // characters list of json map
+  Future<List<ProductModel>>
+  getallProducts() async {
+    // Product list of json map
     final listOfAllProducts = await allProductsApi
         .getallProducts();
-    // return list of character model
+    // return list of Product model
     return listOfAllProducts
-    // Iterable of maps of character model
+        // Iterable of maps of Product model
         .map(
           (product) =>
               ProductModel.fromJson(product),

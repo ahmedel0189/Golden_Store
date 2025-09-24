@@ -7,12 +7,12 @@ class AllCategoriesRepositories {
     required this.allCategoriesApi,
   });
 
-  Future<List<dynamic>>
-  getallCategories() async {
+  Future<List<dynamic>> getallCategories() async {
     // characters list of json map
-    final listOfAllCategories =
-        await allCategoriesApi.getallCategories();
-    // return list of character model
+    final List<dynamic> listOfAllCategories =
+        await allCategoriesApi.getallCategories()
+          ..map((e) => e.toString()).toList();
+    // return list of Categories
     return listOfAllCategories;
   }
 }

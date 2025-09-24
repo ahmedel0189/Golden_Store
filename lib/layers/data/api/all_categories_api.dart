@@ -1,4 +1,3 @@
-
 import 'package:dio/dio.dart';
 import 'package:golden_store/constants/my_strings.dart';
 
@@ -19,7 +18,7 @@ class AllCategoriesApi {
       Response response = await dio.get(
         'categories',
       );
-      return List<String>.from(response.data);
+      return (response.data);
     } catch (e) {
       return [];
     }
