@@ -1,10 +1,10 @@
 import 'package:golden_store/layers/data/api/all_products_api.dart';
 import 'package:golden_store/layers/data/models/product_model.dart';
 
-class CharactersRepositories {
+class AllProductsRepositories {
   final AllProductsApi allProductsApi;
 
-  CharactersRepositories({
+  AllProductsRepositories({
     required this.allProductsApi,
   });
 
