@@ -5,8 +5,7 @@ class ProductModel {
   final String description;
   final String category;
   final String image;
-  final Map<String, dynamic> rating;
-
+  final RatingModel rating;
 
   ProductModel({
     required this.id,
@@ -22,13 +21,31 @@ class ProductModel {
     Map<String, dynamic> json,
   ) {
     return ProductModel(
-      id:json['id'],
+      id: json['id'],
       title: json['title'],
       price: json['price'],
       description: json['description'],
       category: json['category'],
       image: json['image'],
-      rating: Map<String, dynamic>.from(json['rating']),
+      rating: RatingModel.fromJson(json['rating'])
+    );
+  }
+}
+
+class RatingModel {
+  final double rate;
+  final int count;
+  RatingModel({
+    required this.rate,
+    required this.count,
+  });
+
+  factory RatingModel.fromJson(
+    Map<String, dynamic> json,
+  ) {
+    return RatingModel(
+      rate: json['rate'],
+      count: json['count'],
     );
   }
 }
