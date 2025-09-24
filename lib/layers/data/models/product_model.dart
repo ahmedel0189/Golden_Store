@@ -18,7 +18,7 @@ class ProductModel {
     required this.rating,
   });
 
-  factory ProductModel.fromjson(
+  factory ProductModel.fromJson(
     Map<String, dynamic> json,
   ) {
     return ProductModel(
