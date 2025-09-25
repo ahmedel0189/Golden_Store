@@ -34,7 +34,6 @@ class Api {
   }
 
   Future<dynamic> postProduct({
-    required String url,
     @required dynamic body,
     @required String? token,
   }) async {

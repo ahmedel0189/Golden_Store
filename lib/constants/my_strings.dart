@@ -6,9 +6,11 @@ class MyUrls {
   static const allProductUrl =
       'https://fakestoreapi.com/';
   static const allCategoriesUrl =
-      'https://fakestoreapi.com/products/';
+      'https://fakestoreapi.com/products/categories';
   static const categoryProductUrl =
       'https://fakestoreapi.com/products/category/';
+  static const addProduct =
+      'https://fakestoreapi.com/products';
 }
 
 class MyKey {
