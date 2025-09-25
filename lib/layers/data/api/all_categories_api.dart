@@ -5,7 +5,7 @@ class AllCategoriesApi {
   late Dio dio;
   AllCategoriesApi() {
     BaseOptions options = BaseOptions(
-      baseUrl: MyUrls.baseUrl,
+      baseUrl: MyUrls.allCategoriesUrl,
       receiveDataWhenStatusError: true,
       connectTimeout: const Duration(seconds: 20),
       receiveTimeout: const Duration(seconds: 20),
