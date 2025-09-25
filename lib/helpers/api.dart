@@ -18,9 +18,19 @@ class Api {
 
   Future<List<dynamic>> get({
     required String endPoint,
+    @required String? token,
   }) async {
+    Map<String, String> headers = {};
+    if (token != null) {
+      headers.addAll({
+        'Authorization': 'Bearer $token',
+      });
+    }
     try {
-      final response = await dio.get(endPoint);
+      final response = await dio.get(
+        endPoint,
+        options: Options(headers: headers),
+      );
       if (response.statusCode == 200) {
         return response.data;
       } else {

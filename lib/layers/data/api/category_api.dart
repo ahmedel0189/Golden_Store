@@ -7,6 +7,9 @@ class CategoryApi {
   }) async {
     return await Api(
       url: MyUrls.categoryProductUrl,
-    ).get(endPoint: categoryName);
+    ).get(
+      endPoint: categoryName,
+      token: MyKey.authorizationToken,
+    );
   }
 }
