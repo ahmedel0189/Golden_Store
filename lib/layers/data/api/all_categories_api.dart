@@ -12,7 +12,6 @@ class AllCategoriesApi {
     );
     dio = Dio(options);
   }
-
   Future<List<dynamic>> getallCategories() async {
     try {
       Response response = await dio.get(
