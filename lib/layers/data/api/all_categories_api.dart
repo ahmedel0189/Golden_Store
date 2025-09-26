@@ -5,6 +5,9 @@ class AllCategoriesApi {
   Future<List<dynamic>> getallCategories() async {
     return await Api(
       url: MyUrls.allProductUrl,
-    ).get(endPoint: 'categories');
+    ).get(
+      endPoint: 'categories',
+      token: MyKey.authorizationToken,
+    );
   }
 }
