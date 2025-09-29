@@ -9,12 +9,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_store/helpers/app_router.dart';
 
-import 'package:golden_store/main.dart';
+import 'package:golden_store/main_production.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+  testWidgets('Counter increments smoke test', (
+    WidgetTester tester,
+  ) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget( GoldenStore(appRouter: AppRouter(),));
+    await tester.pumpWidget(
+      GoldenStore(appRouter: AppRouter()),
+    );
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
