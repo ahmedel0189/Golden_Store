@@ -6,14 +6,32 @@
       "type": "dart",
       "request": "launch",
       "program": "lib/main_development.dart",
-      "args": ["--flavor", "development", "--target", "lib/main_development.dart"]
+      "args": [
+        "--flavor",
+        "development",
+        "--target",
+        "lib/main_development.dart"
+      ]
     },
     {
       "name": "Golden Store Production",
       "type": "dart",
       "request": "launch",
       "program": "lib/main_production.dart",
-      "args": ["--flavor", "production", "--target", "lib/main_production.dart"]
+      "args": [
+        "--flavor",
+        "production",
+        "--target",
+        "lib/main_production.dart"
+      ]
+    },
+    {
+      "type": "cmake",
+      "request": "launch",
+      "name": "Debug portfile(s)",
+      "cmakeDebugType": "external",
+      "pipeName": "\\\\.\\pipe\\vcpkg_ext_portfile_dbg",
+      "preLaunchTask": "Debug vcpkg commands"
     }
   ]
 }
