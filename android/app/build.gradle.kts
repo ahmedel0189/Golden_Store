@@ -1,5 +1,8 @@
 plugins {
     id("com.android.application")
+    // START: FlutterFire Configuration
+    id("com.google.gms.google-services")
+    // END: FlutterFire Configuration
     id("kotlin-android")
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
@@ -37,13 +40,12 @@ android {
     productFlavors {
         create("development") {
             dimension = "default"
-            resValue("string", "app_name", "IM Legends Development")
+            resValue("string", "app_name", "Golden Store Development")
             applicationIdSuffix = ".development"
         }
         create("production") {
             dimension = "default"
-            resValue("string", "app_name", "IM Legends Production")
-            applicationIdSuffix = ".production"
+            resValue("string", "app_name", "Golden Store Production")
         }
     }
 
