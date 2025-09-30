@@ -1,5 +1,8 @@
 plugins {
     id("com.android.application")
+    // START: FlutterFire Configuration
+    id("com.google.gms.google-services")
+    // END: FlutterFire Configuration
     id("kotlin-android")
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
@@ -11,11 +14,13 @@ android {
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
+        // Sets Java compatibility to version 11
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
 
     kotlinOptions {
+        // Kotlin JVM target version
         jvmTarget = JavaVersion.VERSION_11.toString()
     }
 
@@ -30,10 +35,28 @@ android {
         versionName = flutter.versionName
     }
 
+    // Define flavor dimensions
+    flavorDimensions += "default"
+    productFlavors {
+        create("development") {
+            dimension = "default"
+            resValue("string", "app_name", "Golden Store Development")
+            applicationIdSuffix = ".development"
+        }
+        create("production") {
+            dimension = "default"
+            resValue("string", "app_name", "Golden Store Production")
+        }
+    }
+
+
     buildTypes {
-        release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
+        // Debug build type
+        getByName("debug") {
+            // Debug is usually not signed or uses debug keys by default
+        }
+        // Release build type
+        getByName("release") {
             signingConfig = signingConfigs.getByName("debug")
         }
     }
