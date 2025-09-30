@@ -5,6 +5,15 @@ class HomaePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Center(
+        child: Text(
+          'Hi To the golden Store',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+    );
   }
 }
