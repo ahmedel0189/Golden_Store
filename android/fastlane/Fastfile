@@ -8,7 +8,7 @@ platform :android do
 
     firebase_app_distribution(
       app: "1:889803121743:android:af6d1fc6635c72af7cb63a",
-      firebase_cli_token: "1//03UZayABoItjjCgYIARAAGAMSNgF-L9Irxu4JTko39LWiKYKDDLctvPiNIeX1TscqKFE_HWT5p9AMnt-PFeHzDwIuCIadmrZ1VQ",
+      firebase_cli_token:ENV ["firebase_cli_token"],
       android_artifact_type: "APK",
       android_artifact_path: "../build/app/outputs/flutter-apk/app-production-release.apk",
       testers: "aelbaz0189@gmail.com",
