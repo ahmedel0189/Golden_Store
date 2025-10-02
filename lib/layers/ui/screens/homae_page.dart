@@ -7,7 +7,7 @@ class HomaePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.white,
+      backgroundColor: Colors.blueGrey,
       appBar: AppBar(
         title: Text(
           'New Trends',
@@ -27,7 +27,7 @@ class HomaePage extends StatelessWidget {
             icon: Icon(Icons.shopping_cart),
           ),
         ],
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.blueGrey,
       ),
       body: WidgetsOfProducts.futureGridBuilder(),
     );

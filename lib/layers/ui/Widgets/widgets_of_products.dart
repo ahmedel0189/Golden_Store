@@ -92,7 +92,7 @@ class WidgetsOfProducts {
               top: 60,
             ), // يدي مساحة للصورة فوق
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: Colors.grey,
               borderRadius: BorderRadius.circular(
                 0,
               ),
@@ -136,7 +136,7 @@ class WidgetsOfProducts {
                           fontSize: 14,
                           fontWeight:
                               FontWeight.w600,
-                          color: Colors.green,
+                          color: Colors.white,
                         ),
                       ),
                       IconButton(
@@ -153,7 +153,6 @@ class WidgetsOfProducts {
               ),
             ),
           ),
-
           // الصورة طالعة فوق الكارد
           Positioned(
             top: 0,
