@@ -6,6 +6,7 @@ class HomaePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(backgroundColor: Colors.amber,),
       body:Center(child: Text(
         'Hi Ahmed',style: TextStyle(fontWeight: FontWeight.bold),
       ),)
