@@ -24,13 +24,6 @@ jobs:
       with:
         channel: stable
 
-    # Cache Flutter pub packages
-    - name: Cache Flutter dependencies
-      uses: actions/cache@v2
-      with:
-        path: ~/.pub-cache
-        key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.yaml') }}
-
     - name: Flutter Pub Get
       run: flutter pub get
 
