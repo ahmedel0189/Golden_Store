@@ -1,7 +1,7 @@
 class ProductModel {
   final int id;
   final String title;
-  final int price;
+  final double price;
   final String description;
   final String category;
   final String image;
@@ -23,7 +23,7 @@ class ProductModel {
     return ProductModel(
       id: json['id'],
       title: json['title'],
-      price: json['price'],
+      price: (json['price'] as num).toDouble(), 
       description: json['description'],
       category: json['category'],
       image: json['image'],
@@ -44,7 +44,7 @@ class RatingModel {
     Map<String, dynamic> json,
   ) {
     return RatingModel(
-      rate: json['rate'],
+    rate: (json['rate'] as num).toDouble(),   
       count: json['count'],
     );
   }
