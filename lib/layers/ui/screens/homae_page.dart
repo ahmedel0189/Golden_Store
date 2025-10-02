@@ -5,6 +5,10 @@ class HomaePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body:Center(child: Text(
+        'Hi Ahmed',style: TextStyle(fontWeight: FontWeight.bold),
+      ),)
+    );
   }
 }
