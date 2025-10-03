@@ -3,14 +3,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:golden_store/constants/my_strings.dart';
 import 'package:golden_store/layers/domain/logic/cubit/products_cubit.dart';
 import 'package:golden_store/layers/ui/screens/main_home_page.dart';
+import 'package:hive/hive.dart';
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
+    final myBox = Hive.box('myBox');
+
     switch (settings.name) {
       case MyRoutes.homePageRoute:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
-            create: (context) => ProductsCubit(),
+            create: (context) => ProductsCubit(myBox: myBox),
             child: const MainHomePage(),
           ),
         );
