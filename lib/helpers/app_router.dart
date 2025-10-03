@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:golden_store/constants/my_strings.dart';
+import 'package:golden_store/layers/domain/logic/cubit/products_cubit.dart';
 import 'package:golden_store/layers/ui/screens/homae_page.dart';
 
 class AppRouter {
@@ -7,10 +9,14 @@ class AppRouter {
     switch (settings.name) {
       case MyRoutes.homePageRoute:
         return MaterialPageRoute(
-          builder: (_) => HomaePage(),
+          builder: (_) => BlocProvider(
+            create: (context) => ProductsCubit(),
+            child: const HomaePage(),
+          ),
         );
+
       default:
+        return null; // or a fallback error page
     }
-    return null;
   }
 }
