@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:golden_store/layers/data/models/product_model.dart';
 
 part 'products_state.dart';
 
@@ -20,7 +21,11 @@ class ProductsCubit extends Cubit<ProductsState> {
     // Emit updated state
     emit(LikedProducts(Map.from(_likedProducts)));
   }
-
+  List<ProductModel> getLikedProducts(List<ProductModel> allProducts) {
+    return  allProducts
+        .where((product) => _likedProducts[product.id] == true)
+        .toList();
+  }
   // Reset all liked products
   void resetLikes() {
     _likedProducts.clear();
