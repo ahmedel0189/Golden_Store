@@ -74,7 +74,20 @@ class _FavProductsPageState
                     .read<ProductsCubit>()
                     .getLikedProducts(
                       snapshot.data!,
-                    ); // pass the actual list
+                    );
+                // Show message if no liked products
+                if (likedProducts.isEmpty) {
+                  return const Center(
+                    child: Text(
+                      "Add your favorites 😍",
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontWeight:
+                            FontWeight.bold,
+                      ),
+                    ),
+                  );
+                } // pass the actual list
                 return WidgetsOfProducts.productsGrid(
                   products: likedProducts,
                 );
