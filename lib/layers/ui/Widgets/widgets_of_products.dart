@@ -3,11 +3,9 @@ import 'package:golden_store/layers/data/models/product_model.dart';
 import 'package:golden_store/layers/ui/Widgets/product_card.dart';
 
 class WidgetsOfProducts {
-  // Only builds the grid (no FutureBuilder now)
+  // Builds the product grid using Cubit (ProductCard handles likes itself)
   static Widget productsGrid({
     required List<ProductModel> products,
-    required Map<int, bool> likedProducts,
-    required Function(int) onToggleLike,
   }) {
     return GridView.builder(
       padding: const EdgeInsets.all(16),
@@ -21,13 +19,7 @@ class WidgetsOfProducts {
       itemCount: products.length,
       itemBuilder: (context, index) {
         final product = products[index];
-        final isLiked = likedProducts[product.id] ?? false;
-
-        return ProductCard(
-          productModel: product,
-          initialLiked: isLiked,
-          onPressed: () => onToggleLike(product.id),
-        );
+        return ProductCard(productModel: product);
       },
     );
   }
