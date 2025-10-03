@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:golden_store/layers/data/models/product_model.dart';
+import '../../../data/models/product_model.dart';
 import 'package:hive/hive.dart';
 
 part 'products_state.dart';

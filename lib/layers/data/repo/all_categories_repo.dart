@@ -1,4 +1,4 @@
-import 'package:golden_store/layers/data/api/all_categories_api.dart';
+import '../api/all_categories_api.dart';
 
 class AllCategoriesRepositories {
   final AllCategoriesApi allCategoriesApi;

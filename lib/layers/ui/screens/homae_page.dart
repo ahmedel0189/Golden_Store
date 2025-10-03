@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:golden_store/layers/data/api/all_products_api.dart';
-import 'package:golden_store/layers/data/repo/all_products_repo.dart';
-import 'package:golden_store/layers/data/models/product_model.dart';
-import 'package:golden_store/layers/ui/Widgets/widgets_of_products.dart';
+import '../../data/api/all_products_api.dart';
+import '../../data/repo/all_products_repo.dart';
+import '../../data/models/product_model.dart';
+import '../Widgets/widgets_of_products.dart';
 import 'package:golden_store/layers/ui/Widgets/drawer_of_the_homa_page.dart'; // import your drawer
 
 class HomaePage extends StatefulWidget {

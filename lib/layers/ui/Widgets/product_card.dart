@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:golden_store/layers/data/models/product_model.dart';
-import 'package:golden_store/layers/domain/logic/cubit/products_cubit.dart';
+import '../../data/models/product_model.dart';
+import '../../domain/logic/cubit/products_cubit.dart';
 
 class ProductCard extends StatelessWidget {
   final ProductModel productModel;

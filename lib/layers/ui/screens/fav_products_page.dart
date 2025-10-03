@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:golden_store/layers/data/api/all_products_api.dart';
-import 'package:golden_store/layers/data/models/product_model.dart';
-import 'package:golden_store/layers/data/repo/all_products_repo.dart';
-import 'package:golden_store/layers/domain/logic/cubit/products_cubit.dart';
-import 'package:golden_store/layers/ui/Widgets/widgets_of_products.dart';
+import '../../data/api/all_products_api.dart';
+import '../../data/models/product_model.dart';
+import '../../data/repo/all_products_repo.dart';
+import '../../domain/logic/cubit/products_cubit.dart';
+import '../Widgets/widgets_of_products.dart';
 
 class FavProductsPage extends StatefulWidget {
   const FavProductsPage({super.key});
