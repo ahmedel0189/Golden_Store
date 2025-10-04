@@ -14,13 +14,34 @@ class HomaePage extends StatefulWidget {
 
 class _HomaePageState extends State<HomaePage> {
   late Future<List<ProductModel>> _productsFuture; // store future once
+//   List<ProductModel>? _cachedProducts; // 🔹 NEW
+// Future<void> _navigateToUpdate(ProductModel product) async {
+//   // ننتقل لصفحة التحديث ونبعت المنتج كـ argument
+//   final result = await Navigator.pushNamed(
+//     context,
+//     MyRoutes.updateProductRoute,
+//     arguments: product,
+//   );
+
+//   // نحول النتيجة لـ ProductModel بعد الرجوع من صفحة التحديث
+//   final updatedProduct = result as ProductModel?;
+
+//   // نحدث البيانات في القائمة لو رجع منتج جديد
+//   if (updatedProduct != null && _cachedProducts != null) {
+//     setState(() {
+//       final index = _cachedProducts!.indexWhere((p) => p.id == updatedProduct.id);
+//       if (index != -1) {
+//         _cachedProducts![index] = updatedProduct;
+//       }
+//     });
+//   }
+// }
+
 
   @override
   void initState() {
     super.initState();
-    final repo = AllProductsRepositories(
-      allProductsApi: AllProductsApi(),
-    );
+    final repo = AllProductsRepositories(allProductsApi: AllProductsApi());
     _productsFuture = repo.getallProducts(); // fetch only ONCE
   }
 
@@ -31,10 +52,7 @@ class _HomaePageState extends State<HomaePage> {
       appBar: AppBar(
         title: const Text(
           'New Trends',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 25,
-          ),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
         ),
         centerTitle: true,
         // open drawer when menu icon pressed
@@ -45,12 +63,7 @@ class _HomaePageState extends State<HomaePage> {
           ),
         ),
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.shopping_cart,
-            ),
-          ),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.shopping_cart)),
         ],
         backgroundColor: Colors.blueGrey,
       ),
@@ -59,26 +72,16 @@ class _HomaePageState extends State<HomaePage> {
         future: _productsFuture, // use the stored future
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
+            return const Center(child: CircularProgressIndicator());
           }
           if (snapshot.hasError) {
-            return Center(
-              child: Text(
-                "Error: ${snapshot.error}",
-              ),
-            );
+            return Center(child: Text("Error: ${snapshot.error}"));
           }
           if (snapshot.hasData) {
             final products = snapshot.data!;
-            return WidgetsOfProducts.productsGrid(
-              products: products,
-            );
+            return WidgetsOfProducts.productsGrid(products: products);
           }
-          return const Center(
-            child: Text("No products found"),
-          );
+          return const Center(child: Text("No products found"));
         },
       ),
     );

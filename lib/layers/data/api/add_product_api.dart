@@ -12,7 +12,7 @@ class AddProductApi {
   }) async {
     final Map<String, String> product =
         await Api(
-          url: MyUrls.addProduct,
+          url: MyUrls.addProductUrl,
         ).postProduct(
           body: {
             'title': productName,
