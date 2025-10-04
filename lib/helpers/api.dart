@@ -16,42 +16,27 @@ class Api {
     dio = Dio(options);
   }
 
-  Future<List<dynamic>> get({
-    required String endPoint,
-    @required String? token,
-  }) async {
+  Future<List<dynamic>> get({required String endPoint, @required String? token}) async {
     Map<String, String> headers = {};
     if (token != null) {
-      headers.addAll({
-        'Authorization': 'Bearer $token',
-      });
+      headers.addAll({'Authorization': 'Bearer $token'});
     }
     try {
-      final response = await dio.get(
-        endPoint,
-        options: Options(headers: headers),
-      );
+      final response = await dio.get(endPoint, options: Options(headers: headers));
       if (response.statusCode == 200) {
         return response.data;
       } else {
-        throw Exception(
-          "GET request error: ${response.statusCode}",
-        );
+        throw Exception("GET request error: ${response.statusCode}");
       }
     } catch (e) {
       throw Exception("GET request error: $e");
     }
   }
 
-  Future<dynamic> postProduct({
-    @required dynamic body,
-    @required String? token,
-  }) async {
+  Future<dynamic> postProduct({@required dynamic body, @required String? token}) async {
     Map<String, String> headers = {};
     if (token != null) {
-      headers.addAll({
-        'Authorization': 'Bearer $token',
-      });
+      headers.addAll({'Authorization': 'Bearer $token'});
     }
     try {
       final response = await dio.post(
@@ -67,43 +52,31 @@ class Api {
         );
       }
     } catch (e) {
-      throw Exception(
-        'There is a problem with $e ',
-      );
+      throw Exception('There is a problem with $e ');
     }
   }
 
-  Future<dynamic> updateProduct({
-    @required dynamic body,
-    @required String? token,
-  }) async {
+  Future<dynamic> updateProduct({@required dynamic body, @required String? token}) async {
     Map<String, String> headers = {};
-    headers.addAll({
-      'Content-Type':
-          'application/x-www-form-urlencoded',
-    });
+    headers.addAll({'Content-Type': 'application/x-www-form-urlencoded'});
     if (token != null) {
-      headers.addAll({
-        'Authorization': 'Bearer $token',
-      });
+      headers.addAll({'Authorization': 'Bearer $token'});
     }
     try {
-      final response = await dio.post(
+      final response = await dio.put(
         url,
         data: body,
         options: Options(headers: headers),
       );
-      if (response.statusCode == 200) {
-        return jsonDecode(response.data);
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        return response.data is String ? jsonDecode(response.data) : response.data;
       } else {
         throw Exception(
           'There is a problem with Status code ${response.statusCode} with data ${response.data}',
         );
       }
     } catch (e) {
-      throw Exception(
-        'There is a problem with $e ',
-      );
+      throw Exception('There is a problem with $e ');
     }
   }
 }

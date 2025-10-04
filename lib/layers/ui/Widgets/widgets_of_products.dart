@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:golden_store/layers/data/models/product_model.dart';
-import 'package:golden_store/layers/ui/Widgets/product_card.dart';
+import '../../data/models/product_model.dart';
+import 'product_card.dart';
 
 class WidgetsOfProducts {
   // Builds the product grid using Cubit (ProductCard handles likes itself)

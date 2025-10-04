@@ -1,6 +1,6 @@
-import 'package:golden_store/constants/my_strings.dart';
-import 'package:golden_store/helpers/api.dart';
-import 'package:golden_store/layers/data/models/product_model.dart';
+import '../../../constants/my_strings.dart';
+import '../../../helpers/api.dart';
+import '../models/product_model.dart';
 
 class AddProductApi {
   Future<ProductModel> addProduct({
@@ -12,7 +12,7 @@ class AddProductApi {
   }) async {
     final Map<String, String> product =
         await Api(
-          url: MyUrls.addProduct,
+          url: MyUrls.addProductUrl,
         ).postProduct(
           body: {
             'title': productName,

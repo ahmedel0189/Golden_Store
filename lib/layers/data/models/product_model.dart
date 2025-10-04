@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class ProductModel {
   final int id;
   final String title;
@@ -5,7 +7,7 @@ class ProductModel {
   final String description;
   final String category;
   final String image;
-  final RatingModel rating;
+  final RatingModel? rating;
 
   ProductModel({
     required this.id,
@@ -14,20 +16,18 @@ class ProductModel {
     required this.description,
     required this.category,
     required this.image,
-    required this.rating,
+    @required this.rating,
   });
 
-  factory ProductModel.fromJson(
-    Map<String, dynamic> json,
-  ) {
+  factory ProductModel.fromJson(Map<String, dynamic> json) {
     return ProductModel(
       id: json['id'],
       title: json['title'],
-      price: (json['price'] as num).toDouble(), 
+      price: double.parse(json['price'].toString()),
       description: json['description'],
       category: json['category'],
       image: json['image'],
-      rating: RatingModel.fromJson(json['rating'])
+      rating: json['rating'] != null ? RatingModel.fromJson(json['rating']) : null,
     );
   }
 }
@@ -35,17 +35,12 @@ class ProductModel {
 class RatingModel {
   final double rate;
   final int count;
-  RatingModel({
-    required this.rate,
-    required this.count,
-  });
+  RatingModel({required this.rate, required this.count});
 
-  factory RatingModel.fromJson(
-    Map<String, dynamic> json,
-  ) {
+  factory RatingModel.fromJson(Map<String, dynamic> json) {
     return RatingModel(
-    rate: (json['rate'] as num).toDouble(),   
-      count: json['count'],
+      rate: (json['rate'] ?? 0).toDouble(), // 👈 fallback لو مفيش rate
+      count: (json['count'] ?? 0).toInt(), // 👈 fallback لو مفيش count
     );
   }
 }
