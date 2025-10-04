@@ -1,19 +1,18 @@
-import 'package:golden_store/constants/my_strings.dart';
-import 'package:golden_store/helpers/api.dart';
-import 'package:golden_store/layers/data/models/product_model.dart';
+import '../../../constants/my_strings.dart';
+import '../../../helpers/api.dart';
+import '../models/product_model.dart';
 
 class UpdateProductApi {
-    Future<ProductModel> updateProduct({
+  Future<ProductModel> updateProduct({
+    required int id,
     required String productName,
     required String price,
     required String description,
     required String image,
     required String category,
   }) async {
-    final Map<String, String> product =
-        await Api(
-          url: MyUrls.addProduct,
-        ).updateProduct(
+    final Map<String, dynamic> product =
+        await Api(url: MyUrls.updateProductUrl(id)).updateProduct(
           body: {
             'title': productName,
             'price': price,

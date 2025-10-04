@@ -1,5 +1,5 @@
-import 'package:golden_store/layers/data/api/all_products_api.dart';
-import 'package:golden_store/layers/data/models/product_model.dart';
+import '../api/all_products_api.dart';
+import '../models/product_model.dart';
 
 class AllProductsRepositories {
   final AllProductsApi allProductsApi;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:golden_store/helpers/list_of_bottom_nav_bar.dart';
-import 'package:golden_store/layers/ui/Widgets/botton_nav_bar.dart';
+import '../../../helpers/list_of_bottom_nav_bar.dart';
+import '../Widgets/botton_nav_bar.dart';
 
 class MainHomePage extends StatefulWidget {
   const MainHomePage({super.key});
