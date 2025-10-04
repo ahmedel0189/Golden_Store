@@ -1,5 +1,7 @@
+
 class MyRoutes {
   static const homePageRoute = '/';
+  static const updateProductRoute = '/updateProduct';
 }
 
 class MyUrls {
