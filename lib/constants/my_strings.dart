@@ -1,18 +1,19 @@
-
 class MyRoutes {
   static const homePageRoute = '/';
   static const updateProductRoute = '/updateProduct';
 }
 
 class MyUrls {
-  static const allProductUrl =
-      'https://fakestoreapi.com/';
-  static const allCategoriesUrl =
-      'https://fakestoreapi.com/products/categories';
-  static const categoryProductUrl =
-      'https://fakestoreapi.com/products/category/';
-  static const addProduct =
-      'https://fakestoreapi.com/products';
+  // Static constants (shared for all)
+  static const allProductUrl = 'https://fakestoreapi.com/';
+  static const allCategoriesUrl = 'https://fakestoreapi.com/products/categories';
+  static const categoryProductUrl = 'https://fakestoreapi.com/products/category/';
+  static const addProductUrl = 'https://fakestoreapi.com/products/';
+
+  // Function that returns a dynamic URL for a specific product
+  static String updateProductUrl(int id) {
+    return 'https://fakestoreapi.com/products/$id';
+  }
 }
 
 class MyKey {
