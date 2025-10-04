@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:golden_store/layers/ui/screens/update_product.dart';
 import '../constants/my_strings.dart';
 import '../layers/domain/logic/cubit/products_cubit.dart';
 import '../layers/ui/screens/main_home_page.dart';
@@ -17,6 +18,12 @@ class AppRouter {
             child: const MainHomePage(),
           ),
         );
+
+      case MyRoutes.updateProductRoute:
+        return MaterialPageRoute(
+          builder: (_) => UpdateProduct()
+          );
+        
       default:
         return null; // or a fallback error page
     }
